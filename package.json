@@ -1,0 +1,43 @@
+{
+  "name": "cbd-deploy-cli",
+  "version": "1.0.1",
+  "description": "cli tool for deploy",
+  "main": "index.js",
+  "bin": {
+    "cbd-deploy-cli": "./bin/cbd-deploy-cli.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "src",
+    "dist",
+    "index.js"
+  ],
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "cli",
+    "ssh"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hyattria/cbd-deploy-cli.git"
+  },
+  "author": "xiatian<xtmike008@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.11.1"
+  },
+  "dependencies": {
+    "archiver": "^5.0.2",
+    "chalk": "^4.1.0",
+    "inquirer": "^7.3.3",
+    "minimist": "^1.2.5",
+    "node-ssh": "^11.1.0",
+    "ora": "^5.1.0"
+  }
+}
