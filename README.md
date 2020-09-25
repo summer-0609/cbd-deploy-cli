@@ -9,7 +9,7 @@
 
 ![npm](https://img.shields.io/npm/v/cbd-deploy-cli)
 ![npm](https://img.shields.io/npm/dt/cbd-deploy-cli)
-
+![npm](https://img.shields.io/npm/l/cbd-deploy-cli)
 ![](https://img.shields.io/bundlephobia/minzip/cbd-deploy-cli)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 ![Libraries.io dependency status for latest release, scoped npm package](https://img.shields.io/librariesio/release/npm/cbd-deploy-cli)

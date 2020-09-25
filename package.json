@@ -1,6 +1,6 @@
 {
   "name": "cbd-deploy-cli",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "cli tool for deploy",
   "main": "index.js",
   "bin": {

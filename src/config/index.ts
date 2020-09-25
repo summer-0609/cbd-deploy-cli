@@ -157,7 +157,9 @@ function getPromptList() {
         message: `${env}-${platform}: ${item.message}`,
         when: (answers) =>
           answers.deployEnvList.includes(env) &&
-          answers.projectType === 'hybrid',
+          answers.projectType === 'hybrid' &&
+          answers.platform &&
+          answers.platform.includes(platform),
       }))
     })
     return prev.concat(

@@ -8,7 +8,6 @@ import { NodeSSH } from 'node-ssh'
 import { deployConfigPath } from '../config'
 import { isHybrid, succeed, error, underline, info } from '../util'
 import { IConifgInput, Env, Platform, HybridConfig } from '../util/interface'
-import { platform } from 'os'
 
 const ssh = new NodeSSH()
 const maxBuffer: number = 5000 * 1024
@@ -140,35 +139,40 @@ function isHasPPKOrPwd(config: IConifgInput) {
 
 // 是否确认部署
 const confirmDeploy = (projectName: string, envConfig: IConifgInput) => {
-  return inquirer.prompt([
-    {
-      type: 'confirm',
-      name: 'confirm',
-      message: `${underline(projectName)} 项目是否部署到 ${underline(
-        envConfig.name
-      )}?`,
-    },
-    isHybridApp && {
-      type: 'checkbox',
-      name: 'platforms',
-      message: '请选择项目发布的平台',
-      choices: [
-        {
-          name: '小程序',
-          value: 'mini',
-          checked: true,
+  return inquirer.prompt(
+    [
+      {
+        type: 'confirm',
+        name: 'confirm',
+        message: `${underline(projectName)} 项目是否部署到 ${underline(
+          envConfig.name
+        )}?`,
+      },
+    ].concat(
+      [
+        isHybridApp && {
+          type: 'checkbox',
+          name: 'platforms',
+          message: '请选择项目发布的平台',
+          choices: [
+            {
+              name: '小程序',
+              value: 'mini',
+              checked: true,
+            },
+            {
+              name: 'Web',
+              value: 'web',
+            },
+            {
+              name: 'Native App',
+              value: 'native',
+            },
+          ].filter((item) => Object.keys(envConfig).indexOf(item.value) !== -1),
         },
-        {
-          name: 'Web',
-          value: 'web',
-        },
-        {
-          name: 'Native App',
-          value: 'native',
-        },
-      ].filter((item) => Object.keys(envConfig).indexOf(item.value) !== -1),
-    },
-  ])
+      ].filter(Boolean)
+    )
+  )
 }
 
 // 执行打包命令
